@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  client:
+    image: node:14-alpine
+    network_mode: host
+    volumes:
+      - ./:/code
+    working_dir: /code
+    command: ["sh", "-c", "npm i && npm start"]

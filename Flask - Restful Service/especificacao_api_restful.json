@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.0",
+    "title": "Web Service RESTful",
+    "description": "Serviço que retorna os dados de uma pessoa"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "pessoas",
+      "description": "Grupo de operações com pessoas"
+    }
+  ],
+  "paths": {
+    "/pessoas/cpf/{cpf}": {
+      "get": {
+        "tags": [
+          "pessoas"
+        ],
+        "description": "Retorna os dados e o endereço de uma pessoa através do CPF",
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "description": "CPF da pessoa",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados da pessoa e o endereço",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pessoa"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "404Error": {
+        "description": "Nenhum resultado foi encontrado.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Pessoa": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "data_nascimento": {
+            "type": "string"
+          },
+          "endereco": {
+            "$ref": "#/components/schemas/Endereco"
+          }
+        }
+      },
+      "Endereco": {
+        "type": "object",
+        "properties": {
+          "logradouro": {
+            "type": "string"
+          },
+          "cep": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "integer"
+          },
+          "complemento": {
+            "type": "string"
+          },
+          "cidade": {
+            "$ref": "#/components/schemas/Cidade"
+          },
+          "estado": {
+            "$ref": "#/components/schemas/Estado"
+          },
+          "pais": {
+            "$ref": "#/components/schemas/Pais"
+          }
+        }
+      },
+      "Cidade": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "integer"
+          },
+          "sigla": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          }
+        }
+      },
+      "Estado": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "integer"
+          },
+          "sigla": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          }
+        }
+      },
+      "Pais": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "integer"
+          },
+          "sigla": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

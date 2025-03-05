@@ -1,0 +1,24 @@
+{
+  "name": "eng-rest-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalebealvs/eng-rest-client.git"
+  },
+  "author": "Kalebe Alves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kalebealvs/eng-rest-client/issues"
+  },
+  "homepage": "https://github.com/kalebealvs/eng-rest-client#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

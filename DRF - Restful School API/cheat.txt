@@ -1,0 +1,16 @@
+http://127.0.0.1:8000/api/v1/cursos/
+http://127.0.0.1:8000/api/v2/cursos/
+http://127.0.0.1:8000/api/v1/avaliacoes/
+http://127.0.0.1:8000/api/v2/avaliacoes/
+
+
+python manage.py shell
+from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
+user = User.objects.get(id=1)
+token = Token.objects.create(user=user)
+token.key
+f73861f1961bff2a5a65e2cf5541a5d750070afd
+
+
+token user teste: Token d43619ff4c542b1ed3c086e8ed99b228641ed947

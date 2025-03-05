@@ -1,0 +1,4 @@
+.idea/
+webservice.db
+**/*.pyc
+*.egg-info
