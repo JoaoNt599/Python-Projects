@@ -8,6 +8,9 @@ This repository is a compilation of some Python projects that I developed, dedic
 - Flask
 - FastAPI
 - Django (DRF)
+- Pydantic
 - Docker
 - Tests
 - Clean Architecture
+- Asynchronism
+- Documentation
